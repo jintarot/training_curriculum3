@@ -31,6 +31,9 @@ class CalendarsController < ApplicationController
 
     7.times do |x|
       wday = Date.today.wday + x
+      if wday >= 7
+        wday = wday - 7
+      end
       today_plans = []
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
